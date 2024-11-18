@@ -1,0 +1,1554 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@200..1000&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+
+body {
+    font-family: cairo;
+    direction: rtl;
+
+}
+
+:root {
+    --main-color: #04709f
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* small */
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}
+
+/* medim */
+@media (min-width: 768px) and (max-width:991px) {
+    .container {
+        width: 750%;
+    }
+}
+
+/* large */
+@media (min-width: 992px) and (max-width:1199px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* xlarge */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* التنسيق داخل سي اس اس للناف  */
+/* 1- دائما نكتب تعليقات داخل سي اس اس للتمييز الخطوات  */
+
+/* start header style */
+/* 2- الهيدر الاب الكبير له خلفية بيضاء مثلا */
+
+header {
+    background-color: white;
+    border-bottom: 1px solid rgb(216, 212, 212);
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* الثلات صفات الاخيرة تجعل الهيدر ثابت و فوق الععناصر عند التمرير */
+}
+
+/* 3- نستدعي نيستينغ الكونتينير للهيدر و له خصائص دائمة  */
+
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+/* 6- نيستينغ للوصول الى الصورة */
+header .container img {
+    width: 80px;
+
+}
+
+header .container nav {
+    flex: 1;
+    /* فليكس يساوي الواحد لياخذ باقي المحتوي و هو اختصار ل جرو */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    header .container nav {
+        justify-content: end;
+    }
+}
+
+/* 4- نيستينغ للقائمة لناف داخل كونتينير داخل الهيدر */
+/* تصبح العناصر أفقية */
+header .container nav ul {
+    display: flex;
+}
+
+/* 5-تصبح عناصر القائمة بلوك لانها كانت ال اي على شكل ان لاين للتحكم بالعلرض و الارتفاع و البادينغ */
+/* لاخفاء القائمة على مقاس الموبايل و التابلت */
+
+@media (max-width: 768px) {
+    header .container nav ul {
+        display: none;
+    }
+}
+
+.nav-tog:hover {
+    color: white;
+    transform: scale(1.5);
+    background-color: var(--main-color);
+    padding: 2px;
+    /* display: flex; */
+    /* لاظهار القائمة يو ال المختفية في الموبايل و التابلت */
+    /* justify-content: center;
+    flex-direction: column;
+    position: absolute; */
+    /* لتحريك العناصر ناخذ ابسوليوت */
+    /* top: 100%; */
+    /* تصبح القائمة تحت البار عند الهوفر */
+    /* left: 0;
+    width: 100%; */
+    /* القائمة تاخذ عرض الشاشة عند الهوفر */
+    /* background-color: #eee;
+    transition: 0.3s;
+    padding-right: 30px; */
+    /* ملاااااااحظة هامة كل ما هو معلق هنا كان قبل وضع الايقونة على الجافا سكريبت لتصبح على النقر */
+}
+
+.mobile-nav1 {
+    display: flex !important;
+    /* لاظهار القائمة يو ال المختفية في الموبايل و التابلت */
+    /* important بدونها لا تظهر القائمة */
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    /* لتحريك العناصر ناخذ ابسوليوت */
+    top: 100%;
+    /* تصبح القائمة تحت البار عند الهوفر */
+    left: 0;
+    width: 100%;
+    /* القائمة تاخذ عرض الشاشة عند الهوفر */
+    background-color: #eee;
+    transition: 0.3s;
+    padding-right: 30px;
+}
+
+/* لاخفاء البار في شاشات الكمبيوتر و الاكبر منه */
+@media (min-width: 768px) {
+    .nav-tog {
+        display: none;
+    }
+}
+
+header .container nav ul li a {
+    display: block;
+    padding: 20px 10px;
+    font-size: 16px;
+    font-weight: 700;
+    color: black;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    header .container nav ul li a {
+        border-bottom: 1px solid #ccc;
+    }
+}
+
+/* 7- ضمن  عملية جروبينغ 
+نيستينغ للوصول للينك في القائمة للتحديد الاكتيف اننا في نفس الصفحة و نضع هوفر للينك */
+header .container nav ul li a .active,
+header .container nav ul li a:hover {
+    color: white;
+    background-color: var(--main-color);
+}
+
+header .container .social {
+    display: flex;
+    /* تصبح عرضية */
+    justify-content: space-between;
+    /* فقط للسوشيال في الهيدرهذا التنسيق */
+}
+
+/* لاخفاء السوشيل على مقاس الموبايل و التابلت */
+@media (max-width: 768px) {
+    header .container .social {
+        display: none;
+    }
+
+    /* هذا الاخقاء للسوشيال في الهيدر فقط */
+}
+
+header .container .social i {
+    /* للتحكم بصورة السوشيال داخل الصندوق */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    height: 35px;
+    width: 35px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+
+}
+
+.container .social i:hover {
+    background-color: rgb(61, 49, 49);
+    scale: 1.1
+}
+
+
+
+/* end header style */
+/* <!-- start hero style --> */
+
+.hero {
+    background-image: url(../images/background.webp);
+    /* height: calc(100vh - 60px); */
+    /*  و الخلفية تملا كل الصفحةvh الارتفاع المرئي المئة لكامل الصفحة نطرح منه ارتفاع الهيدر فيزول السكرول */
+    /* height: calc(87vh - 60px); */
+    /* لم نطبقها لا داعي */
+    /* يظهر قسم من الصفحة و لا يعبا الخلفية كامل الصفحة  */
+
+}
+
+@media (max-width: 768px) {
+    .hero {
+        /* height: calc(100vh - 60px); */
+        /* لم نطبقها لا داعي */
+    }
+}
+
+
+.hero .container {
+    display: flex;
+    /* تصبح عناصر الكونتير الذي يحوي الملوات و الصورة بشكل عرضي */
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .hero .container {
+        flex-direction: column-reverse;
+    }
+
+    /* تصبح عمودية في موبايل و تابلت */
+}
+
+
+.hero .container .hero-img img {
+    width: 500px;
+}
+
+@media (max-width: 768px) {
+    .hero .container .hero-img img {
+        width: 350px;
+
+    }
+
+
+}
+
+.hero .container .hero-title {
+    font-size: 45px;
+    font-family: almarai;
+    font-weight: 800;
+    color: var(--main-color);
+}
+
+@media (max-width: 768px) {
+    .hero .container .hero-title {
+        font-size: 35px;
+        text-align: center;
+
+    }
+
+
+}
+
+.hero .container .hero-info h2 {
+    margin: 20px;
+    font-size: 30px;
+    color: black;
+
+
+}
+
+@media (max-width: 768px) {
+    .hero .container .hero-info h2 {
+        font-size: 25px;
+        text-align: center;
+
+    }
+
+
+}
+
+.hero .container .hero-info p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    width: 80%;
+}
+
+@media (max-width: 768px) {
+    .hero .container .hero-info p {
+        line-height: 1.5;
+        width: 100%;
+        font-size: 16px;
+        text-align: center;
+
+    }
+
+
+}
+
+.hero .container .social {
+    display: flex;
+    /* للتحكم بالابناء */
+}
+
+@media (max-width: 768px) {
+    .hero .container .social {
+        justify-content: center;
+
+
+    }
+
+
+}
+
+.hero .container .social i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    height: 35px;
+    width: 35px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.hero .container .social i:hover {
+    background-color: rgb(61, 49, 49);
+    scale: 1.1
+}
+
+.hero .container .hero-info .call {
+    display: flex;
+    justify-content: start;
+}
+
+@media (max-width: 768px) {
+    .hero .container .hero-info .call {
+        justify-content: center;
+
+
+    }
+
+
+}
+
+.hero .container .hero-info .call button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.hero .container .hero-info .call button:hover {
+    scale: 1.1;
+    background-color: black;
+    cursor: pointer;
+}
+
+/* <!-- end hero style --> */
+/* start services style */
+.services {
+    background-color: #eee;
+    padding: 50px 0;
+}
+
+.section-title {
+    font-size: 40px;
+    color: var(--main-color);
+    text-align: center;
+    margin-bottom: 15px;
+    padding-top: 20px;
+    font-size: almarai;
+}
+
+.section-desc {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.all-services {
+
+    /* لكي تصبح العناصر متجاوبة على جميع الاجهز */
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.all-services .service {
+    background-color: white;
+    text-align: center;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ccc;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    /* لاخفاء كل ما يخرج عن الأب فتبقى الخطوط الزرقاء ضمن الاب و تبقى منحنية الحواف */
+}
+
+.all-services .service::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0%;
+    background-color: var(--main-color);
+    transition: 0.5s;
+}
+
+.all-services .service:hover::before {
+    height: 100%;
+}
+
+.all-services .service::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* top left اي يبدا الخط من الزاوية اليمنى العليا */
+    width: 2px;
+    height: 0;
+    background-color: var(--main-color);
+    /* بدون خلفية لون لا يظهر الشكل */
+    transition: 0.5s;
+}
+
+.all-services .service:hover::after {
+    height: 100%;
+}
+
+.all-services .service:hover {
+    transform: translateY(-10px);
+}
+
+.all-services .service img {
+    width: 70px;
+    margin-bottom: 15px;
+}
+
+.all-services .service .one {
+    margin-bottom: 5px;
+}
+
+.all-services .service .two {
+    margin-top: -10px;
+    width: 60px;
+    ;
+}
+
+.all-services .service h3 {
+    margin-bottom: 15px;
+    color: var(--main-color);
+}
+
+.all-services .service p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* end services style */
+/* <!-- start about us style --> */
+
+.about-us {
+    padding: 50px 0;
+    background-color: white;
+}
+
+.about-us .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-info,
+.about-img {
+    width: 50%
+}
+
+/* لجعل القطاعين متساويين و بالتناظر مع القسم العلوي المقابل في السيرفيس */
+
+.about-us h2 {
+    color: var(--main-color);
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.about-us p {
+    width: 90%;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+@media (max-width: 768px) {
+    .about-us .container {
+        flex-direction: column;
+        text-align: center;
+
+    }
+
+    .about-info,
+    .about-img {
+        width: 100%;
+    }
+
+    .about-us p {
+        width: 100%;
+    }
+
+    .about-us .about-call {
+        margin-bottom: 25px;
+    }
+
+
+
+}
+
+.about-us .about-call {
+    background-color: var(--main-color);
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    /* تبقى الطبقة العليا */
+}
+
+.about-us .about-img {
+    background-color: var(--main-color);
+
+}
+
+.about-us .about-img img {
+    transform: translate(-10px, -10px);
+    width: 100%;
+    /* من مساحة الاب%100
+    الذي هو كلاسهabout-img */
+    /* ويفضل ان يكون العرض كنسبة مثوية تساعد في الريسبونسيف */
+}
+
+@media (max-width: 768px) {
+    .about-us .about-img img {
+        transform: translate(0, 0);
+
+
+
+    }
+
+
+}
+
+.about-us .about-call::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    transition: 0.5s;
+    background-color: black;
+    z-index: -1;
+    /* تبقى الطبقة الثانية */
+}
+
+.about-us .about-call:hover::before {
+    width: 50%;
+}
+
+.about-us .about-call::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background-color: black;
+    transition: 0.5s;
+    z-index: -1;
+    /* تبقى الطبقة الثانية */
+}
+
+.about-us .about-call:hover::after {
+    width: 50%;
+}
+
+/* <!-- end about us style --> */
+
+/* start statistics style */
+.statistics {
+    padding: 70px 0;
+    background-image: url(../images/st-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.statistics .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.537);
+
+}
+
+.statistics .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* هذه الخاصية تفيد بتوزيع العناصر بالعرض و ديناميكيا و لا نحتاج الى ميديا للموبايل و التابلت */
+    gap: 20px;
+}
+
+.statistics .container .stat {
+    background-color: rgba(255, 255, 255, 0.345);
+    padding: 20px 0;
+    cursor: pointer;
+    height: 200px;
+    text-align: center;
+    transition: 0.5s;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+    /* يجب ان يكون الطبقة الاولى و الا لن تظهر التغيرات و لن تظهر المؤشر */
+    position: relative;
+    overflow: hidden;
+
+}
+
+.statistics .container .stat:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+
+.statistics .container .stat::before {
+    position: absolute;
+    content: "";
+    background-color: var(--main-color);
+    width: 0;
+    top: 0;
+    right: 0;
+    height: 3px;
+    transition: 1.5;
+
+}
+
+.statistics .container .stat:hover::before {
+    width: 100%;
+}
+
+.statistics .container .stat h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+    color: blue;
+}
+
+.statistics .container .stat p {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* end statistics style */
+/* start courses style */
+.courses {
+    padding: 50px 0;
+    background-color: #eee;
+}
+
+.courses .container .all-courses {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.courses .container .all-courses .course {
+    background-color: white;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    transition: 0.5s;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    ☺
+    /* لكي يتحرك الابن التصنيف على الصورة */
+    overflow: hidden;
+    /* لكي يظهر حواف البوردر للكارت */
+
+}
+
+.courses .container .all-courses .course:hover {
+    transform: scale(1.05);
+}
+
+.courses .container .all-courses .course img {
+    width: 100%;
+}
+
+/* تأخذ عرض الاب تماما و لايصبح تداخل بين الصور */
+.courses .all-courses .course .course-title {
+    color: var(--main-color);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.courses .container .all-courses .course .course-desc {
+    color: rgba(150, 134, 134, 0.992);
+    line-height: 1.7;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: start;
+    word-spacing: 0.5ch;
+
+}
+
+
+
+
+.course-price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.course-price div :last-child {
+    /* استهداف الابن الخير من هذا اليف */
+    text-decoration: line-through;
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+.course-price :last-child
+
+/* استهداف الابن الاخير من هذا الكلاس */
+    {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+hr {
+    width: 80%;
+    /* يبقى من العرض 20% نوزعا بالتساوي على محور الاكس عند الازاحة */
+    transform: translatex(-10%);
+    margin-bottom: 15px;
+    background-color: #eee;
+    border: none;
+    height: 1px;
+
+}
+
+.course-details {
+    width: 90%;
+    background-color: var(--main-color);
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.course-details:hover {
+    background-color: #abb9bf;
+    color: black;
+}
+
+.category {
+    background-color: var(--main-color);
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.course-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.course-info i {
+    margin-left: 10px;
+}
+
+.reviews {
+    color: rgb(242, 208, 18)
+}
+
+.star {
+    color: var(--main-color);
+}
+
+/* end courses style */
+/* start portfolio style */
+.portfolio {
+    padding: 50px 0;
+
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+
+}
+
+.portfolio .port-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.box img {
+    max-width: 100%;
+    height: 100%;
+    ;
+}
+
+.box {
+    border: 1px solid #ccc;
+    text-align: center;
+
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    /* يجمع كل ما يخرج عن الاب */
+
+}
+
+.portfolio .port-container .box .info {
+    background-color: rgba(16, 3, 3, 0.34);
+    padding: 15px 0;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    /* هنا تختفي المعلومات و تظهر الصورة التي تحتها */
+    width: 100%;
+    height: 100%;
+    /* بهذه العملية نغطي كل الصورة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: 0.5s;
+
+}
+
+.portfolio .port-container .box:hover .info {
+    right: 0;
+    /* هنا تظهر المعلومات و لكن خلفيتها شفافة فتظهر الصورة معها */
+}
+
+
+.portfolio .port-container .box .info h3 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.portfolio .port-container .box .info p {
+    font-size: 18px;
+    color: red;
+    font-weight: 700;
+}
+
+.port-call {
+    background-color: var(--main-color);
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    margin: auto;
+    width: 70%;
+}
+
+/* .port-call a {
+   
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+
+/* end portfolio style */
+/* start team style */
+.our-team {
+    background-color: #eee;
+    padding: 50px 0;
+}
+
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.team-container .team-box img {
+    width: 90%;
+    border-radius: 0 0 10px 0;
+    filter: grayscale(100%);
+    /* تجعل الصورة ابيض و اسود */
+}
+
+
+.team-box {
+    background-color: white;
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0 0 10px #574949;
+}
+
+.team-box:hover {
+    transform: translateY(-10px);
+}
+
+.team-box:hover img {
+    filter: grayscale(0);
+}
+
+/* تصبح الصورة ملونة */
+.img-social {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+/* تصبح الايقونات و الصورة على نفس السوية في قسمين */
+.img-social .social {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 2px;
+    padding-top: 15px;
+}
+
+/* تصبح عناصر الايقونات في سطر ثم نفعلها عمودية */
+
+.img-social .social i {
+    margin: 4px;
+    background-color: var(--main-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.team-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+}
+
+.team-info h3 {
+    color: var(--main-color);
+    margin-bottom: 10px;
+}
+
+/* end team style */
+/* start skills style */
+.our-skills {
+    padding: 50px 0;
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+
+
+}
+
+.our-skills .container {
+    display: flex;
+    justify-content: space-between;
+    /* السبيس بيتوين يوزع 10% المتبقية بين العصرين بالتساوي */
+    align-items: center;
+    /* align items يجعل العناصر متوازيين عمودا */
+
+}
+
+
+.skills-info,
+.skills-img {
+    width: 45%;
+}
+
+@media (max-width: 768px) {
+
+    .our-skills .container {
+        flex-direction: column-reverse;
+    }
+
+    .skills-info,
+    .skills-img {
+        width: 100%;
+    }
+}
+
+.skills-img img {
+    width: 100%;
+
+    /* 100% من الاب الذ عرضه 45% */
+
+    ;
+    height: 300px;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+
+}
+
+.skills-img img:hover {
+    filter: grayscale(100%);
+}
+
+.count {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.count :last-child {
+    color: var(--main-color);
+    border: 1px solid rgb(202, 183, 183);
+    padding: 2px 3px;
+    border-radius: 1px;
+}
+
+.progress .prog {
+    width: 100%;
+    height: 22px;
+    background-color: rgb(215, 199, 199);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progress .prog span {
+    position: absolute;
+
+    height: 100%;
+    background-color: red;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.progress .prog span:hover {
+    width: 100% !important;
+}
+
+/* فنضع مهم لكي يطبق العرض الجديد */
+
+/* لانه في اتش تي ام ال في ان لاين يوجد عرض و هوي قوي  */
+
+
+/* start skills style */
+/* start pricing style */
+.pricing-section {
+    padding: 50px 0;
+    background-color: #eee;
+}
+
+.pricing-section .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+
+}
+
+.plan {
+    background-color: white;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.plan:hover {
+    transform: translateY(10px);
+}
+
+.plan:nth-child(2)::before,
+.plan:nth-child(4)::before {
+    position: absolute;
+    content: "عرض مميز";
+    width: 200px;
+    height: 40px;
+    /* top: -40px; */
+    /* left: 0px; */
+    /* ناقص قيمة الارتفاع ليخرج عن الاب */
+    top: 10px;
+    left: -60px;
+    background-color: var(--main-color);
+    color: white;
+    display: flex;
+    /* للتحكم بالعناصر التي بداخله */
+    justify-content: center;
+    font-size: 20px;
+
+    text-align: center;
+    transform: rotate(-45deg);
+    z-index: -1;
+    padding-top: 10px;
+
+
+
+}
+
+.plan .plan-title {
+    color: var(--main-color);
+    font-size: 23px;
+    margin-top: 33px;
+}
+
+.plan .plan-title1,
+.plan-title2,
+.plan-title3 {
+    color: var(--main-color);
+    padding-bottom: 15px;
+    font-size: 23px;
+    margin-top: 30px;
+}
+
+.plan .plan-title3 {
+
+    padding-bottom: 10px;
+
+}
+
+.plan .price p:first-child {
+    color: var(--main-color);
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.plan .price p:last-child {
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 5px;
+
+}
+
+.plan ul {
+    text-align: right;
+    padding: 15px;
+    padding-right: 15px;
+
+
+
+}
+
+.plan ul li {
+    border-top: 1px solid #eee;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+}
+
+.plan ul li:hover {
+    background-color: #eee;
+}
+
+.plan ul li::before {
+    content: "\f0d9";
+    /* نضع قوس قبل الكود الخاص ب سي اس اس المنسوخ */
+    font-family: "font awesome 5 free";
+    font-weight: 900;
+    /* font-family- font-weight يجب وضعههم بهذا الشكل لتظهر نتيجة السهم */
+    position: absolute;
+    /* width: 5px;
+    height: 5px; */
+    /* يظهر مربع قبل عناصر القائمة */
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    color: var(--main-color);
+
+
+    ;
+
+}
+
+.plan .plan-btn {
+    background-color: var(--main-color);
+    color: white;
+    width: 90%;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 5px;
+    cursor: pointer;
+    transition: 0.5s;
+    font-size: 20px;
+}
+
+.plan .plan-btn:hover {
+    transform: scale(1.05);
+}
+
+/* end pricing style */
+/* start testimonials style */
+.testimonials {
+    padding: 50px 0;
+
+}
+
+.testimonials .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.testimonials .container .testimonial {
+    position: relative;
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.testimonials .container .testimonial:hover {
+    transform: translateY(-5px);
+}
+
+.testimonials .container .testimonial::before {
+    position: absolute;
+    content: "";
+    width: 3px;
+    height: 0;
+    left: 0;
+    bottom: 0;
+    /* يبدأ من اليسار الاسفل اي الزاوية */
+    background-color: var(--main-color);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.testimonials .container .testimonial:hover::before {
+    height: 50%;
+}
+
+.testimonials .container .testimonial::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    /* يبدأ من اليسار الاسفل اي الزاوية */
+    background-color: var(--main-color);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.testimonials .container .testimonial:hover::after {
+    width: 50%;
+}
+
+.testimonials .container .testimonial img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 5px;
+    top: -20px;
+    border-radius: 50%;
+    background-color: white;
+    border: 7px solid white;
+
+}
+
+.testimonial h2 {
+    color: var(--main-color);
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.testimonial .work {
+    margin-bottom: 13px;
+    font-weight: 600;
+}
+
+
+.testimonial .stars {
+    margin-bottom: 10px;
+}
+
+.testimonial .stars .fill {
+    color: rgb(255, 213, 2);
+}
+
+.testimonial .review {
+    font-size: 15px;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* end testimonials style */
+/* start footer style */
+footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    background-color: rgba(112, 109, 109, 0.849);
+    background-image: url(/images/footerbg.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top: 5px solid var(--main-color);
+    cursor: pointer;
+}
+
+footer .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+footer h2 {
+    color: var(--main-color);
+    text-align: center;
+
+}
+
+footer p {
+    color: white;
+    line-height: 1.6;
+    margin-top: 10px;
+
+
+}
+
+@media (max-width: 768px) {
+
+
+    footer .container .section h2 {
+        text-align: right;
+
+    }
+
+    footer .container .section ul {
+
+        margin-right: -30px;
+
+    }
+
+    footer .container .section .letter {
+        margin-right: 3px;
+    }
+}
+
+footer a {
+    color: white;
+    display: block;
+    /* لانه عنصر ان لاين و نرييد التحكم بالعرض و باقي الصفات */
+    margin-top: 15px;
+
+    transition: o.3s;
+    position: relative;
+    text-align: right;
+    margin-right: 60px;
+    width: 90%;
+}
+
+footer a::before {
+    content: "\f0d9";
+    font-family: "font awesome 5 free";
+    font-weight: 900;
+    position: absolute;
+    color: var(--main-color);
+    top: 0;
+    right: -20px;
+
+
+}
+
+footer a:hover {
+    color: var(--main-color);
+    padding-right: 25px;
+    font-weight: bold;
+}
+
+footer .letter form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+footer form input[type="text"],
+footer form input[type="email"] {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    caret-color: var(--main-color);
+    /* يعطي السهم داخل الحقل بلون الموقع */
+
+}
+
+footer form input[type="text"]:focus,
+footer form input[type="email"]:focus {
+    outline: none;
+    /* لازالة الخط الخارجي عند الضغط على الحقل */
+    border: 4px solid var(--main-color);
+}
+
+footer .letter form input[type="submit"] {
+    background-color: var(--main-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: 0.3s;
+    color: white;
+}
+
+footer .letter form input[type="submit"]:hover {
+    transform: scale(1.05);
+    background-color: rgb(46, 44, 44);
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    font-weight: bold;
+}
+
+.hr-footer {
+    margin-top: 30px;
+    transform: translateX(-20%);
+    width: 70%;
+}
+
+.copyright {
+    text-align: center;
+    color: white;
+}
+
+.btn-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background-color: #25D366;
+    /* ثابت اللون من هيكس */
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px var(--main-color);
+    transition: 0.5s;
+
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.1) translateY(-10px);
+}
+
+.btn-whatsapp i {
+    font-size: 35px;
+}
+
+
+
+/* start footer style */
